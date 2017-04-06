@@ -1,0 +1,22 @@
+CREATE TABLE cuentas (
+ _id INTEGER AUTO INCREMENT PRIMARY KEY,
+ usuario VARCHAR(256),
+ mdp VARCHAR(32) NOT NULL,
+
+ );
+
+ -- historia - A
+ -- geografia - B
+ -- literatura - C
+ -- arte - D
+ -- deportes - E
+ -- ciencia - F
+ -- tecnologia - G
+ -- astronomia - H
+ -- otras - Z
+
+ -- incluir algunas preguntas para depuracion
+ INSERT INTO cuentas (usuario, mdp)
+ VALUES("usuarioBernardo", "mdpBernardo");
+
+ --resto de preguntas
