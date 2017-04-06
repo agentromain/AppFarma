@@ -16,10 +16,10 @@ public class DBHelper extends SQLiteOpenHelper {
     protected SQLiteDatabase db;
     protected Context ctx;
 
-    public DBHelper(Context context) {
+    public DBHelper(Context context, String m) {
         super(context, NOMBRE_BD, null, VERSION_ACTUAL_BD);
         this.ctx = context;
-        this.open();
+        this.open(m);
     }
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Log.d("debug", "Creando la Base de Datos");
@@ -38,9 +38,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
         Log.d("debug", "Actualizando la base de datos desde la version " + i + " a la version " + i2);
     }
-    public void open() {
+    public void open(String mode) {
         Log.d("debug", "Abriendo la base de datos");
-        this.db = this.getWritableDatabase();
+        if(mode == "WRITE")
+            this.db = this.getWritableDatabase();
+        else if(mode == "READ")
+            this.db = this.getReadableDatabase();
     }
     public void close() {
         Log.d("debug", "Cerrando la base de datos");
@@ -49,8 +52,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public void addSampleData() {
         try {
             this.db.execSQL("DELETE FROM cuentas;");
-            this.db.execSQL("INSERT INTO cuentas (usuario, mdp)" +
-            "VALUES(\"romainartru\", \"mdpRomain\");");
+            this.db.execSQL("INSERT INTO cuentas (usuario, correo, mdp)" +
+            "VALUES(\"romainartru\", \"romain@mail.com\" \"mdpRomain\");");
             //RESTO DE cuentas
         }
         catch (Exception e) {

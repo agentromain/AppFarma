@@ -9,14 +9,15 @@ import android.content.Context;
 import android.database.Cursor;
 
 public class DBPref extends DBHelper {
-    public DBPref(Context contexto) {
-        super(contexto);
+    public DBPref(Context contexto, String mode) {
+        super(contexto, mode);
     }
 
 
     public void addRegistro(Cuenta cuenta) {
         ContentValues valores = new ContentValues();
         valores.put("usuario", cuenta.getUsuario());
+        valores.put("contrasena", cuenta.getCorreo());
         valores.put("contrasena", cuenta.getMdp());
 /*
         String[] respuestas_erroneas = pregunta.getRespuestasErroneas();
@@ -32,7 +33,7 @@ public class DBPref extends DBHelper {
         }
     }
     public Cursor getCuentas() {
-        return this.db.rawQuery("SELECT cuenta, mdp FROM cuentas",
+        return this.db.rawQuery("SELECT cuenta, correo, mdp FROM cuentas",
                 new String[]{});
     }
     //...
