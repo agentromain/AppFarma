@@ -7,6 +7,7 @@ package com.example.romainartru.appfarma;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.provider.Settings;
 
 public class DBPref extends DBHelper {
     public DBPref(Context contexto, String mode) {
@@ -17,8 +18,8 @@ public class DBPref extends DBHelper {
     public void addRegistro(Cuenta cuenta) {
         ContentValues valores = new ContentValues();
         valores.put("usuario", cuenta.getUsuario());
-        valores.put("contrasena", cuenta.getCorreo());
-        valores.put("contrasena", cuenta.getMdp());
+        valores.put("correo", cuenta.getCorreo());
+        valores.put("mdp", cuenta.getMdp());
 /*
         String[] respuestas_erroneas = pregunta.getRespuestasErroneas();
         for(int i = 0; i < respuestas_erroneas.length; i++) {
@@ -33,8 +34,7 @@ public class DBPref extends DBHelper {
         }
     }
     public Cursor getCuentas() {
-        return this.db.rawQuery("SELECT cuenta, correo, mdp FROM cuentas",
+        return this.db.rawQuery("SELECT usuario, correo, mdp FROM cuentas",
                 new String[]{});
     }
-    //...
 }

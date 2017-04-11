@@ -10,7 +10,8 @@ public class Cuenta {
     private String mdp;
 
     public Cuenta(String u, String co, String m){
-        usuario =u;
+        usuario = u;
+        correo = co;
         mdp = m;
     }
 

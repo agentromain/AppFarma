@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_marginLeft="20dp"
+    android:layout_marginTop="10dp"
     >
 
 
@@ -15,23 +16,57 @@
         android:layout_marginTop="10dp"
         android:text="Bienvenido a la farmacia " />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:lineSpacingExtra="10dp"
-        android:hint="example@mail.com"
-        android:inputType="textEmailAddress" />
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="20dp"/>
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="*********"
-        android:inputType="textPassword" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/mailLogIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo :" />
+
+        <Space
+            android:layout_width="70dp"
+            android:layout_height="0dp"/>
+
+        <EditText
+            android:id="@+id/editCorreoLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="ejemplo@correo.es"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/pwdLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contrasena :" />
+
+        <Space
+            android:layout_width="43dp"
+            android:layout_height="0dp"/>
+
+        <EditText
+            android:id="@+id/editMDPLog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="********"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
