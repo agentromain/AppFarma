@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public DBHelper(Context context, String m) {
         super(context, NOMBRE_BD, null, VERSION_ACTUAL_BD);
         this.ctx = context;
-        this.open(m);
+        //this.open(m);
     }
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Log.d("debug", "Creando la Base de Datos");

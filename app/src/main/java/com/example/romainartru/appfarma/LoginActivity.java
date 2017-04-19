@@ -21,16 +21,16 @@ import android.widget.TextView;
 
 public class LoginActivity extends Activity{
 
-    DBPref mDbP;
+    //DBPref mDbP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        mDbP  = new DBPref(LoginActivity.this, "READ");
+        //mDbP  = new DBPref(LoginActivity.this, "READ");
         final int indexFarma = getIntent().getIntExtra("idFarma", -1);
 
-        SQLiteDatabase db = mDbP.getReadableDatabase();
+        MainActivity.mDbP.db = MainActivity.mDbP.getReadableDatabase();
 
         TextView title = (TextView) findViewById(R.id.titleFarmaLogin);
 
@@ -53,7 +53,7 @@ public class LoginActivity extends Activity{
         mBli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cursor cur = mDbP.getCuentas();
+                Cursor cur = MainActivity.mDbP.getCuentas();
                 boolean found = false;
 
                 cur.moveToFirst();
@@ -74,7 +74,7 @@ public class LoginActivity extends Activity{
                 for(int i = 0; i < cur.getCount(); ++i){
                     if(correo.equals(edC.getText().toString()) &&
                             passw.equals(edM.getText().toString())){
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, FarmaGeneralActivity.class);
                         startActivity(intent);
                         found = true;
                     }

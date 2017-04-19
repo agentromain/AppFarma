@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/buttonProfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mi perfil" />
+
+    <Button
+        android:id="@+id/buttonMed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ver medicamentos" />
+
+    <Button
+        android:id="@+id/buttonCesta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cesta" />
+
+    <Button
+        android:id="@+id/buttonHist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Historico de pedidas" />
+
+    <Button
+        android:id="@+id/buttonPref"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Preferencias" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <Button
+        android:id="@+id/buttonExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salir farmacia" />
+</LinearLayout>

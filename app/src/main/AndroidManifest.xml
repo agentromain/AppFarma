@@ -41,6 +41,9 @@
             android:label="@string/title_activity_map"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SigninActivity"></activity>
+        <activity android:name=".FarmaGeneralActivity"></activity>
+        <activity android:name=".FarmaProfilActivity"></activity>
+        <activity android:name=".MedActivity"></activity>
     </application>
 
 </manifest>

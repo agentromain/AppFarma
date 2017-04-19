@@ -8,10 +8,14 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    static DBPref mDbP;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MainActivity.mDbP = new DBPref(this, "WRITE");
 
         Button mB = (Button) findViewById(R.id.button_begin1);
         mB.setOnClickListener(new View.OnClickListener() {
