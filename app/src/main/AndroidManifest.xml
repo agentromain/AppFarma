@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         android:name="com.xyz.appF"
-        <activity android:name=".MainActivity">
+        <activity android:name=".FarmaGeneralActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +41,6 @@
             android:label="@string/title_activity_map"></activity>
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".SigninActivity"></activity>
-        <activity android:name=".FarmaGeneralActivity"></activity>
         <activity android:name=".FarmaProfilActivity"></activity>
         <activity android:name=".MedActivity"></activity>
     </application>

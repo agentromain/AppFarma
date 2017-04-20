@@ -1,13 +1,24 @@
 CREATE TABLE cuentas (
  _id  INTEGER PRIMARY KEY INTEGER AUTOINCREMENT,
- usuario VARCHAR(256),
+ usuario VARCHAR(32),
  correo VARCHAR(32),
  mdp VARCHAR(32)
 
  );
 
+ CREATE TABLE medics (
+  _id  INTEGER PRIMARY KEY INTEGER AUTOINCREMENT,
+  nombre VARCHAR(32),
+  desc VARCHAR(256),
+  precio VARCHAR(32)
+
+  );
+
  -- incluir algunas preguntas para depuracion
  INSERT INTO cuentas (usuario, correo, mdp)
  VALUES("usuarioBernardo", "correoBernardo@mail.com", "mdpBernardo");
+
+ INSERT INTO medics (nombre, desc, precio)
+  VALUES("Lorem ipsum", "Lorem ipsum dolor sit amet", "10.0");
 
  --resto de preguntas

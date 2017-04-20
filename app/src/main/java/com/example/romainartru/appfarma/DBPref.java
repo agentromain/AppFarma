@@ -15,7 +15,7 @@ public class DBPref extends DBHelper {
     }
 
 
-    public void addRegistro(Cuenta cuenta) {
+    public void addCuenta(Cuenta cuenta) {
         ContentValues valores = new ContentValues();
         valores.put("usuario", cuenta.getUsuario());
         valores.put("correo", cuenta.getCorreo());
@@ -30,7 +30,7 @@ public class DBPref extends DBHelper {
     }
     public void addRegistros(Cuenta[] cuentas) {
         for(int i = 0; i < cuentas.length; i++) {
-            this.addRegistro(cuentas[i]);
+            this.addCuenta(cuentas[i]);
         }
     }
     public Cursor getCuentas() {

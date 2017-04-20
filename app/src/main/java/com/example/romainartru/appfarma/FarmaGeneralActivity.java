@@ -60,7 +60,7 @@ public class FarmaGeneralActivity extends Activity{
         });
 
         Button buEx = (Button) findViewById(R.id.buttonExit);
-        buPref.setOnClickListener(new View.OnClickListener() {
+        buEx.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(FarmaGeneralActivity.this, MapActivity.class);
                 startActivity(intent);

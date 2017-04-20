@@ -48,7 +48,7 @@ public class SigninActivity extends Activity {
 
                     if(m.equals(mc)) {
                         Cuenta c = new Cuenta(edU.getText().toString(), edC.getText().toString(), edM.getText().toString());
-                        MainActivity.mDbP.addRegistro(c);
+                        MainActivity.mDbP.addCuenta(c);
 
                         Intent intent = new Intent(SigninActivity.this, LoginActivity.class);
                         intent.putExtra("idFarma", indexFarma);
