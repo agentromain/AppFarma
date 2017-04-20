@@ -28,7 +28,7 @@ public class DBPref extends DBHelper {
         */
         db.insert("cuentas", null, valores);
     }
-    public void addRegistros(Cuenta[] cuentas) {
+    public void addCuentas(Cuenta[] cuentas) {
         for(int i = 0; i < cuentas.length; i++) {
             this.addCuenta(cuentas[i]);
         }

@@ -31,8 +31,6 @@ public class SigninActivity extends Activity {
         setContentView(R.layout.signin_activity);
         final int indexFarma = getIntent().getIntExtra("idFarma", -1);
 
-        MainActivity.mDbP.db = MainActivity.mDbP.getWritableDatabase();
-
         Button mBE = (Button) findViewById(R.id.buttonEnviar);
         final EditText edU = (EditText) findViewById(R.id.editUsuario);
         final EditText edC = (EditText) findViewById(R.id.editCorreo);
@@ -48,7 +46,9 @@ public class SigninActivity extends Activity {
 
                     if(m.equals(mc)) {
                         Cuenta c = new Cuenta(edU.getText().toString(), edC.getText().toString(), edM.getText().toString());
+                        MainActivity.mDbP.db = MainActivity.mDbP.getWritableDatabase();
                         MainActivity.mDbP.addCuenta(c);
+                        MainActivity.mDbP.close();
 
                         Intent intent = new Intent(SigninActivity.this, LoginActivity.class);
                         intent.putExtra("idFarma", indexFarma);

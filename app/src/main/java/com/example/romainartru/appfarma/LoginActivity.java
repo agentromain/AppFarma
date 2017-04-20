@@ -30,8 +30,6 @@ public class LoginActivity extends Activity{
         //mDbP  = new DBPref(LoginActivity.this, "READ");
         final int indexFarma = getIntent().getIntExtra("idFarma", -1);
 
-        MainActivity.mDbP.db = MainActivity.mDbP.getReadableDatabase();
-
         TextView title = (TextView) findViewById(R.id.titleFarmaLogin);
 
         title.setText(String.format("Bienvenido a la farmacia %d", indexFarma));
@@ -53,6 +51,8 @@ public class LoginActivity extends Activity{
         mBli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                MainActivity.mDbP.db = MainActivity.mDbP.getReadableDatabase();
                 Cursor cur = MainActivity.mDbP.getCuentas();
                 boolean found = false;
 
@@ -70,6 +70,7 @@ public class LoginActivity extends Activity{
                 */
                 String correo = cur.getString(1);
                 String passw = cur.getString(2);
+                MainActivity.mDbP.close();
 
                 for(int i = 0; i < cur.getCount(); ++i){
                     if(correo.equals(edC.getText().toString()) &&
