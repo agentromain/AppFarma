@@ -9,8 +9,8 @@ import android.database.Cursor;
  */
 
 public class DBMed extends DBHelper {
-    public DBMed(Context contexto, String mode) {
-        super(contexto, mode);
+    public DBMed(Context contexto/*, String mode*/) {
+        super(contexto/*, mode*/);
     }
 
     public void addMed(Medicamento m) {

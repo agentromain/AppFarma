@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -46,9 +47,29 @@ public class SigninActivity extends Activity {
 
                     if(m.equals(mc)) {
                         Cuenta c = new Cuenta(edU.getText().toString(), edC.getText().toString(), edM.getText().toString());
+
                         MainActivity.mDbP.db = MainActivity.mDbP.getWritableDatabase();
                         MainActivity.mDbP.addCuenta(c);
                         MainActivity.mDbP.close();
+
+                        /*
+                        MainActivity.mDbP.db = MainActivity.mDbP.getReadableDatabase();
+                        Cursor cur = MainActivity.mDbP.getCuentas();
+                        Log.i("lala", cur.getCount()+"");
+                        Log.i("lala", cur.getColumnCount()+"");
+                        Log.i("lala", cur.getColumnName(0)+"");
+                        Log.i("lala", cur.getColumnName(1)+"");
+                        Log.i("lala", cur.getColumnName(2)+"");
+
+                        cur.moveToNext();
+                        for(int i = 0; i < cur.getCount(); ++i){
+                            for(int j = 0; j < cur.getColumnCount(); ++j){
+                                Log.i("lala", cur.getString(j)+"");
+                            }
+                            cur.moveToNext();
+                        }
+                        MainActivity.mDbP.close();
+                        */
 
                         Intent intent = new Intent(SigninActivity.this, LoginActivity.class);
                         intent.putExtra("idFarma", indexFarma);

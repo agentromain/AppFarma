@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        MainActivity.mDbP = new DBPref(this, "WRITE");
+        MainActivity.mDbP = new DBPref(this);
 
         Button mB = (Button) findViewById(R.id.button_begin1);
         mB.setOnClickListener(new View.OnClickListener() {

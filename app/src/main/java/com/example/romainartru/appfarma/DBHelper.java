@@ -16,7 +16,7 @@ public class DBHelper extends SQLiteOpenHelper {
     protected SQLiteDatabase db;
     protected Context ctx;
 
-    public DBHelper(Context context, String m) {
+    public DBHelper(Context context/*, String m*/) {
         super(context, NOMBRE_BD, null, VERSION_ACTUAL_BD);
         this.ctx = context;
         //this.open(m);
@@ -34,6 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 sb.delete(0, sb.capacity());
             }
         }
+
     }
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i2) {
         Log.d("debug", "Actualizando la base de datos desde la version " + i + " a la version " + i2);
@@ -51,7 +52,6 @@ public class DBHelper extends SQLiteOpenHelper {
     }
     public void addSampleData() {
         try {
-            this.db.execSQL("DELETE FROM cuentas;");
             this.db.execSQL("INSERT INTO cuentas (usuario, correo, mdp)" +
             "VALUES(\"romainartru\", \"romain@mail.com\" \"mdpRomain\");");
             //RESTO DE cuentas

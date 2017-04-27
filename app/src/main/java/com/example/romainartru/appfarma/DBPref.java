@@ -10,12 +10,13 @@ import android.database.Cursor;
 import android.provider.Settings;
 
 public class DBPref extends DBHelper {
-    public DBPref(Context contexto, String mode) {
-        super(contexto, mode);
+    public DBPref(Context contexto/*, String mode*/) {
+        super(contexto/*, mode*/);
     }
 
 
     public void addCuenta(Cuenta cuenta) {
+
         ContentValues valores = new ContentValues();
         valores.put("usuario", cuenta.getUsuario());
         valores.put("correo", cuenta.getCorreo());
@@ -36,5 +37,9 @@ public class DBPref extends DBHelper {
     public Cursor getCuentas() {
         return this.db.rawQuery("SELECT usuario, correo, mdp FROM cuentas",
                 new String[]{});
+    }
+
+    public void removeCuentas(){
+        this.db.execSQL("DELETE FROM cuentas;");
     }
 }

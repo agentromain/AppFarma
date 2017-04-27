@@ -52,35 +52,28 @@ public class LoginActivity extends Activity{
             @Override
             public void onClick(View v) {
 
+
                 MainActivity.mDbP.db = MainActivity.mDbP.getReadableDatabase();
                 Cursor cur = MainActivity.mDbP.getCuentas();
                 boolean found = false;
 
-                cur.moveToFirst();
-
-                /*
-                if(cur.getCount() > 0) {
-                    String userName = cur.getString(0);
-                    String correo = cur.getString(1);
-                    String passw = cur.getString(2);
-                    Log.i("col1", userName);
-                    Log.i("col2", correo);
-                    Log.i("col3", passw);
-                }
-                */
-                String correo = cur.getString(1);
-                String passw = cur.getString(2);
-                MainActivity.mDbP.close();
+                cur.moveToNext();
 
                 for(int i = 0; i < cur.getCount(); ++i){
+                    String correo = cur.getString(1);
+                    String passw = cur.getString(2);
                     if(correo.equals(edC.getText().toString()) &&
                             passw.equals(edM.getText().toString())){
+                        found = true;
+                        MainActivity.mDbP.close();
                         Intent intent = new Intent(LoginActivity.this, FarmaGeneralActivity.class);
                         startActivity(intent);
-                        found = true;
+
                     }
                     cur.moveToNext();
                 }
+                MainActivity.mDbP.close();
+
                 if(!found) {
                     Dialog d = new Dialog(LoginActivity.this);
                     TextView td = new TextView(LoginActivity.this);
@@ -91,6 +84,25 @@ public class LoginActivity extends Activity{
                     d.addContentView(td, params);
                     d.show();
                 }
+                /*
+                MainActivity.mDbP.db = MainActivity.mDbP.getReadableDatabase();
+                Cursor cur = MainActivity.mDbP.getCuentas();
+                Log.i("lala", cur.getCount()+"");
+                Log.i("lala", cur.getColumnCount()+"");
+                Log.i("lala", cur.getColumnName(0)+"");
+                Log.i("lala", cur.getColumnName(1)+"");
+                Log.i("lala", cur.getColumnName(2)+"");
+
+                cur.moveToNext();
+                for(int i = 0; i < cur.getCount(); ++i){
+                    for(int j = 0; j < cur.getColumnCount(); ++j){
+                        Log.i("lala", cur.getString(j)+"");
+                    }
+                    Log.i("lala", "NEXT ACCOUNT");
+                    cur.moveToNext();
+                }
+                MainActivity.mDbP.close();
+                */
 
                 //Intent intent = new Intent(LoginActivity.this, SigninActivity.class);
                 //startActivity(intent);
